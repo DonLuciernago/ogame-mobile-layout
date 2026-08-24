@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "OGame Mobile Layout",
+  "version": "0.1.0",
+  "description": "Minimal UI layout reordering for OGame, designed to coexist with OGame Infinity.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.ogame.gameforge.com/*"
+      ],
+      "css": [
+        "layout.css"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
