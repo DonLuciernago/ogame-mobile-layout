@@ -1,14 +1,23 @@
 /*
- * OGame Mobile Layout v0.4
+ * OGame Mobile Layout v0.5
  *
- * Reorder existing OGame UI regions only. No responsive rules, no polling,
- * no observers, no duplicated UI.
+ * Fixed 670px layout. No responsive rules, no polling, no observers,
+ * no duplicated UI.
  *
  * Visual order:
- *   1. #top (contains the original resources bar)
- *   2. #middle
- *   3. #left | #right
+ *   1. Top / resources
+ *   2. Officers under resources
+ *   3. Main content
+ *   4. Left menu | planets
  */
+
+.ogame-mobile-layout,
+.ogame-mobile-layout body,
+.ogame-mobile-layout #pageContent {
+  width: 670px;
+  min-width: 670px;
+  max-width: 670px;
+}
 
 .ogame-mobile-layout #pageContent {
   display: grid;
@@ -17,11 +26,12 @@
     "top top"
     "middle middle"
     "left right";
-  width: 670px;
 }
 
 .ogame-mobile-layout #top {
   grid-area: top;
+  width: 670px;
+  position: relative;
 }
 
 .ogame-mobile-layout #middle {
@@ -39,4 +49,20 @@
   grid-area: right;
   float: none;
   justify-self: end;
+  width: 300px;
+}
+
+/* Hide the OGame skyscraper advertisement in both known variants. */
+.ogame-mobile-layout #banner_skyscraper,
+.ogame-mobile-layout #bannerSkyscrapercomponent {
+  display: none !important;
+}
+
+/* Keep the original officers component intact, only reposition it. */
+.ogame-mobile-layout #commandercomponent {
+  position: absolute !important;
+  left: 195px !important;
+  top: 82px !important;
+  right: auto !important;
+  transform: none !important;
 }
