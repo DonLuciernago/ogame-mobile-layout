@@ -1,5 +1,6 @@
-/* OGame Mobile Layout v0.8
- * Fixed compact layout. No responsive rules, polling or observers.
+/* OGame Mobile Layout v0.9
+ * Original left column removed from layout. Its original #menuTable is moved
+ * once into #pageContent by content.js.
  */
 
 html.ogame-mobile-layout,
@@ -10,7 +11,6 @@ html.ogame-mobile-layout #pageContent {
   max-width: 970px !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  overflow-x: hidden !important;
 }
 
 html.ogame-mobile-layout #pageContent {
@@ -18,7 +18,7 @@ html.ogame-mobile-layout #pageContent {
   grid-template-columns: 670px 300px;
   grid-template-areas:
     "top top"
-    "left left"
+    "menu menu"
     "middle right";
 }
 
@@ -27,17 +27,54 @@ html.ogame-mobile-layout #top {
   width: 970px !important;
   min-width: 970px !important;
   max-width: 970px !important;
-  position: relative;
 }
 
+/* The original left column no longer participates in layout. */
 html.ogame-mobile-layout #left {
-  grid-area: left;
-  float: none !important;
+  display: none !important;
+}
+
+html.ogame-mobile-layout #menuTable {
+  grid-area: menu;
+  display: grid !important;
+  grid-template-columns: repeat(5, 134px);
+  grid-auto-rows: 29px;
   width: 670px !important;
   min-width: 670px !important;
   max-width: 670px !important;
   height: auto !important;
+  min-height: 116px !important;
   margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  float: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  list-style: none !important;
+}
+
+html.ogame-mobile-layout #menuTable > li {
+  display: block !important;
+  position: relative !important;
+  float: none !important;
+  width: 134px !important;
+  height: 29px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html.ogame-mobile-layout #menuTable > li > a.menubutton {
+  display: block !important;
+  width: 104px !important;
+  max-width: 104px !important;
+  box-sizing: border-box !important;
+}
+
+html.ogame-mobile-layout #menuTable > li > .menu_icon {
+  right: 0 !important;
+  left: auto !important;
 }
 
 html.ogame-mobile-layout #middle {
@@ -54,50 +91,6 @@ html.ogame-mobile-layout #right {
   margin: 0 !important;
 }
 
-/* Original OGame main menu: 5 columns, up to 4 rows. */
-html.ogame-mobile-layout #left #links {
-  width: 670px !important;
-  height: auto !important;
-  margin: 0 !important;
-}
-
-html.ogame-mobile-layout #menuTable {
-  display: grid !important;
-  grid-template-columns: repeat(5, 134px);
-  grid-auto-rows: 29px;
-  width: 670px !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
-}
-
-html.ogame-mobile-layout #menuTable > li {
-  float: none !important;
-  width: 134px !important;
-  height: 29px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  position: relative !important;
-}
-
-html.ogame-mobile-layout #menuTable > li > a.menubutton {
-  width: 104px !important;
-  max-width: 104px !important;
-  box-sizing: border-box !important;
-}
-
-html.ogame-mobile-layout #menuTable > li > .menu_icon {
-  right: 0 !important;
-  left: auto !important;
-}
-
-/* Hide everything from the original left column except the main menu itself. */
-html.ogame-mobile-layout #left > :not(#links),
-html.ogame-mobile-layout #links > :not(#menuTable) {
-  display: none !important;
-}
-
 /* Remove ad containers so they consume neither width nor height. */
 html.ogame-mobile-layout #banner_skyscraper,
 html.ogame-mobile-layout #bannerSkyscrapercomponent,
@@ -108,14 +101,4 @@ html.ogame-mobile-layout [id*="bannerSkyscraper"] {
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-/* Officers stay untouched functionally; only their position changes. */
-html.ogame-mobile-layout #commandercomponent {
-  position: absolute !important;
-  left: 195px !important;
-  top: 82px !important;
-  right: auto !important;
-  transform: none !important;
-  margin: 0 !important;
 }
