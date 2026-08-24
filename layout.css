@@ -15,3 +15,34 @@
 .ogame-mobile-layout {
   /* Activation hook only. Real selectors will be added after DOM inspection. */
 }
+
+#ogame-mobile-layout-diagnostic {
+  position: fixed;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 6px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.78);
+  font: 11px/1.2 Arial, sans-serif;
+  color: #fff;
+}
+
+#ogame-mobile-layout-diagnostic button {
+  margin: 0;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 3px;
+  background: #d9d9d9;
+  color: #111;
+  font: inherit;
+  cursor: pointer;
+}
+
+#ogame-mobile-layout-diagnostic span {
+  min-width: 42px;
+  text-align: center;
+}
