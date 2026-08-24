@@ -3,15 +3,12 @@
 
   document.documentElement.classList.add('ogame-mobile-layout');
 
-  // OGame ships a desktop-sized mobile viewport. Our layout is fixed at
-  // 670 CSS px, so tell Chromium/Kiwi to fit that exact width instead.
-  let viewport = document.querySelector('meta[name="viewport"]');
+  // Move the original OGame menu once. No cloning: existing links/listeners stay intact.
+  const pageContent = document.querySelector('#pageContent');
+  const menuTable = document.querySelector('#menuTable');
+  const middle = document.querySelector('#middle');
 
-  if (!viewport) {
-    viewport = document.createElement('meta');
-    viewport.name = 'viewport';
-    document.head.appendChild(viewport);
+  if (pageContent && menuTable && middle && menuTable.parentElement !== pageContent) {
+    pageContent.insertBefore(menuTable, middle);
   }
-
-  viewport.content = 'width=670, initial-scale=1';
 })();
