@@ -1,7 +1,7 @@
-/* OGame Mobile Layout v0.12
+/* OGame Mobile Layout v0.13
  * Zoom-only mode: no structural, positional, visibility or viewport changes.
  */
 
 html {
-  zoom: 4 !important;
+  zoom: 3.2 !important;
 }
