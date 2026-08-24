@@ -1,5 +1,5 @@
-/* OGame Mobile Layout v0.6
- * Compact fixed layout. No responsive rules, polling or observers.
+/* OGame Mobile Layout v0.7
+ * Fixed compact layout. No responsive rules, polling or observers.
  */
 
 html.ogame-mobile-layout,
@@ -15,11 +15,12 @@ html.ogame-mobile-layout #pageContent {
 
 html.ogame-mobile-layout #pageContent {
   display: grid !important;
-  grid-template-columns: 335px 335px;
+  grid-template-columns: 670px;
   grid-template-areas:
-    "top top"
-    "middle middle"
-    "left right";
+    "top"
+    "left"
+    "middle"
+    "right";
 }
 
 html.ogame-mobile-layout #top {
@@ -30,6 +31,16 @@ html.ogame-mobile-layout #top {
   position: relative;
 }
 
+html.ogame-mobile-layout #left {
+  grid-area: left;
+  float: none !important;
+  width: 670px !important;
+  min-width: 670px !important;
+  max-width: 670px !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
 html.ogame-mobile-layout #middle {
   grid-area: middle;
   float: none !important;
@@ -37,20 +48,57 @@ html.ogame-mobile-layout #middle {
   margin-right: 0 !important;
 }
 
-html.ogame-mobile-layout #left {
-  grid-area: left;
-  float: none !important;
-  justify-self: start;
-  margin-left: 0 !important;
-}
-
 html.ogame-mobile-layout #right {
   grid-area: right;
   float: none !important;
-  justify-self: start;
   width: 300px !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin: 0 !important;
+}
+
+/* Original OGame main menu: 5 columns, up to 4 rows. */
+html.ogame-mobile-layout #left #links {
+  width: 670px !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+html.ogame-mobile-layout #menuTable {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 29px;
+  width: 670px !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+html.ogame-mobile-layout #menuTable > li {
+  float: none !important;
+  width: 134px !important;
+  height: 29px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+html.ogame-mobile-layout #menuTable > li > a.menubutton {
+  width: 104px !important;
+  max-width: 104px !important;
+  box-sizing: border-box !important;
+}
+
+html.ogame-mobile-layout #menuTable > li > .menu_icon {
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Keep non-main-menu additions below the grid instead of interleaving them. */
+html.ogame-mobile-layout #toolLinksWrapper,
+html.ogame-mobile-layout #left .ogk-navPanel,
+html.ogame-mobile-layout #advicebarcomponent,
+html.ogame-mobile-layout #ipimenucomponent {
+  clear: both !important;
 }
 
 /* Remove ad containers so they consume neither width nor height. */
