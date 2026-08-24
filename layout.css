@@ -1,48 +1,42 @@
 /*
- * OGame Mobile Layout
+ * OGame Mobile Layout v0.4
  *
- * Goal: reorder existing OGame UI regions without rebuilding them.
- * Keep this file lightweight and scoped under .ogame-mobile-layout.
+ * Reorder existing OGame UI regions only. No responsive rules, no polling,
+ * no observers, no duplicated UI.
  *
- * Target visual order:
- *   1. Resources
- *   2. Main content
- *   3. Two columns: main menu | planets
- *
- * No responsive rules are used intentionally.
+ * Visual order:
+ *   1. #top (contains the original resources bar)
+ *   2. #middle
+ *   3. #left | #right
  */
 
-.ogame-mobile-layout {
-  /* Activation hook only. Real selectors will be added after DOM inspection. */
+.ogame-mobile-layout #pageContent {
+  display: grid;
+  grid-template-columns: 335px 335px;
+  grid-template-areas:
+    "top top"
+    "middle middle"
+    "left right";
+  width: 670px;
 }
 
-#ogame-mobile-layout-diagnostic {
-  position: fixed;
-  right: 8px;
-  bottom: 8px;
-  z-index: 2147483647;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 6px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.78);
-  font: 11px/1.2 Arial, sans-serif;
-  color: #fff;
+.ogame-mobile-layout #top {
+  grid-area: top;
 }
 
-#ogame-mobile-layout-diagnostic button {
-  margin: 0;
-  padding: 5px 8px;
-  border: 0;
-  border-radius: 3px;
-  background: #d9d9d9;
-  color: #111;
-  font: inherit;
-  cursor: pointer;
+.ogame-mobile-layout #middle {
+  grid-area: middle;
+  float: none;
 }
 
-#ogame-mobile-layout-diagnostic span {
-  min-width: 42px;
-  text-align: center;
+.ogame-mobile-layout #left {
+  grid-area: left;
+  float: none;
+  justify-self: start;
+}
+
+.ogame-mobile-layout #right {
+  grid-area: right;
+  float: none;
+  justify-self: end;
 }
