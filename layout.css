@@ -1,4 +1,4 @@
-/* OGame Mobile Layout v0.17
+/* OGame Mobile Layout v0.18
  * Native browser zoom is handled by the extension service worker.
  */
 
@@ -20,4 +20,22 @@ body#ingamepage {
 #menuTable a[href*="component=galaxy"] {
   color: #bfe9ff !important;
   font-weight: 700 !important;
+}
+
+/* Prevent mobile browsers from adding an extra focus zoom on form controls. */
+input,
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+/* Hide OGame's anchored bottom chat bar / open chat conversations. */
+#chatBar,
+#chatbar,
+#chatbarcomponent,
+.chatBar,
+.chatbar,
+[id*="chatBar"],
+[id*="chatbar"] {
+  display: none !important;
 }
