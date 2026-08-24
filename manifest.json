@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "OGame Mobile Layout",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Zoom-only OGame extension for Chromium/Kiwi.",
   "content_scripts": [
     {
