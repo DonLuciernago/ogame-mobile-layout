@@ -1,13 +1,13 @@
-/* OGame Mobile Layout v0.7
+/* OGame Mobile Layout v0.8
  * Fixed compact layout. No responsive rules, polling or observers.
  */
 
 html.ogame-mobile-layout,
 html.ogame-mobile-layout body,
 html.ogame-mobile-layout #pageContent {
-  width: 670px !important;
-  min-width: 670px !important;
-  max-width: 670px !important;
+  width: 970px !important;
+  min-width: 970px !important;
+  max-width: 970px !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
   overflow-x: hidden !important;
@@ -15,19 +15,18 @@ html.ogame-mobile-layout #pageContent {
 
 html.ogame-mobile-layout #pageContent {
   display: grid !important;
-  grid-template-columns: 670px;
+  grid-template-columns: 670px 300px;
   grid-template-areas:
-    "top"
-    "left"
-    "middle"
-    "right";
+    "top top"
+    "left left"
+    "middle right";
 }
 
 html.ogame-mobile-layout #top {
   grid-area: top;
-  width: 670px !important;
-  min-width: 670px !important;
-  max-width: 670px !important;
+  width: 970px !important;
+  min-width: 970px !important;
+  max-width: 970px !important;
   position: relative;
 }
 
@@ -44,8 +43,8 @@ html.ogame-mobile-layout #left {
 html.ogame-mobile-layout #middle {
   grid-area: middle;
   float: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  width: 670px !important;
+  margin: 0 !important;
 }
 
 html.ogame-mobile-layout #right {
@@ -64,7 +63,7 @@ html.ogame-mobile-layout #left #links {
 
 html.ogame-mobile-layout #menuTable {
   display: grid !important;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 134px);
   grid-auto-rows: 29px;
   width: 670px !important;
   height: auto !important;
@@ -93,12 +92,10 @@ html.ogame-mobile-layout #menuTable > li > .menu_icon {
   left: auto !important;
 }
 
-/* Keep non-main-menu additions below the grid instead of interleaving them. */
-html.ogame-mobile-layout #toolLinksWrapper,
-html.ogame-mobile-layout #left .ogk-navPanel,
-html.ogame-mobile-layout #advicebarcomponent,
-html.ogame-mobile-layout #ipimenucomponent {
-  clear: both !important;
+/* Hide everything from the original left column except the main menu itself. */
+html.ogame-mobile-layout #left > :not(#links),
+html.ogame-mobile-layout #links > :not(#menuTable) {
+  display: none !important;
 }
 
 /* Remove ad containers so they consume neither width nor height. */
