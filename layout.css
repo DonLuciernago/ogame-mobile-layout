@@ -1,26 +1,20 @@
-/*
- * OGame Mobile Layout v0.5
- *
- * Fixed 670px layout. No responsive rules, no polling, no observers,
- * no duplicated UI.
- *
- * Visual order:
- *   1. Top / resources
- *   2. Officers under resources
- *   3. Main content
- *   4. Left menu | planets
+/* OGame Mobile Layout v0.6
+ * Compact fixed layout. No responsive rules, polling or observers.
  */
 
-.ogame-mobile-layout,
-.ogame-mobile-layout body,
-.ogame-mobile-layout #pageContent {
-  width: 670px;
-  min-width: 670px;
-  max-width: 670px;
+html.ogame-mobile-layout,
+html.ogame-mobile-layout body,
+html.ogame-mobile-layout #pageContent {
+  width: 670px !important;
+  min-width: 670px !important;
+  max-width: 670px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  overflow-x: hidden !important;
 }
 
-.ogame-mobile-layout #pageContent {
-  display: grid;
+html.ogame-mobile-layout #pageContent {
+  display: grid !important;
   grid-template-columns: 335px 335px;
   grid-template-areas:
     "top top"
@@ -28,41 +22,55 @@
     "left right";
 }
 
-.ogame-mobile-layout #top {
+html.ogame-mobile-layout #top {
   grid-area: top;
-  width: 670px;
+  width: 670px !important;
+  min-width: 670px !important;
+  max-width: 670px !important;
   position: relative;
 }
 
-.ogame-mobile-layout #middle {
+html.ogame-mobile-layout #middle {
   grid-area: middle;
-  float: none;
+  float: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-.ogame-mobile-layout #left {
+html.ogame-mobile-layout #left {
   grid-area: left;
-  float: none;
+  float: none !important;
   justify-self: start;
+  margin-left: 0 !important;
 }
 
-.ogame-mobile-layout #right {
+html.ogame-mobile-layout #right {
   grid-area: right;
-  float: none;
-  justify-self: end;
-  width: 300px;
+  float: none !important;
+  justify-self: start;
+  width: 300px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-/* Hide the OGame skyscraper advertisement in both known variants. */
-.ogame-mobile-layout #banner_skyscraper,
-.ogame-mobile-layout #bannerSkyscrapercomponent {
+/* Remove ad containers so they consume neither width nor height. */
+html.ogame-mobile-layout #banner_skyscraper,
+html.ogame-mobile-layout #bannerSkyscrapercomponent,
+html.ogame-mobile-layout [id*="banner_skyscraper"],
+html.ogame-mobile-layout [id*="bannerSkyscraper"] {
   display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Keep the original officers component intact, only reposition it. */
-.ogame-mobile-layout #commandercomponent {
+/* Officers stay untouched functionally; only their position changes. */
+html.ogame-mobile-layout #commandercomponent {
   position: absolute !important;
   left: 195px !important;
   top: 82px !important;
   right: auto !important;
   transform: none !important;
+  margin: 0 !important;
 }
