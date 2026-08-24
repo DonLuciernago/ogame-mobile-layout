@@ -1,11 +1,23 @@
-/* OGame Mobile Layout v0.16
+/* OGame Mobile Layout v0.17
  * Native browser zoom is handled by the extension service worker.
- * Keep OGame's original menu styling and button dimensions.
  */
+
+/* Replace OGame's general page background with flat black. */
+html,
+body#ingamepage {
+  background: #000 !important;
+  background-image: none !important;
+}
 
 /* Original menu buttons are 29px high.
  * Add 30% of that height (8.7px) as vertical separation between items.
  */
 #menuTable > li {
   margin-bottom: 8.7px !important;
+}
+
+/* Galaxy: emphasize only the button text. */
+#menuTable a[href*="component=galaxy"] {
+  color: #bfe9ff !important;
+  font-weight: 700 !important;
 }
