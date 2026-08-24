@@ -1,32 +1,46 @@
-/* OGame Mobile Layout v0.9
+/* OGame Mobile Layout v0.10
  * Original left column removed from layout. Its original #menuTable is moved
  * once into #pageContent by content.js.
  */
 
+:root {
+  --oml-main-width: 670px;
+  --oml-planets-width: 187px;
+  --oml-content-width: 857px;
+  --oml-top-width: 1090px;
+  --oml-menu-cell: 134px;
+}
+
 html.ogame-mobile-layout,
-html.ogame-mobile-layout body,
-html.ogame-mobile-layout #pageContent {
-  width: 970px !important;
-  min-width: 970px !important;
-  max-width: 970px !important;
+html.ogame-mobile-layout body {
+  width: var(--oml-top-width) !important;
+  min-width: var(--oml-top-width) !important;
+  max-width: var(--oml-top-width) !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  overflow-x: hidden !important;
 }
 
 html.ogame-mobile-layout #pageContent {
+  width: var(--oml-top-width) !important;
+  min-width: var(--oml-top-width) !important;
+  max-width: var(--oml-top-width) !important;
+  margin: 0 !important;
   display: grid !important;
-  grid-template-columns: 670px 300px;
+  grid-template-columns: var(--oml-main-width) var(--oml-planets-width) 1fr;
   grid-template-areas:
-    "top top"
-    "menu menu"
-    "middle right";
+    "top top top"
+    "menu menu ."
+    "middle right .";
+  align-items: start;
 }
 
 html.ogame-mobile-layout #top {
   grid-area: top;
-  width: 970px !important;
-  min-width: 970px !important;
-  max-width: 970px !important;
+  width: var(--oml-top-width) !important;
+  min-width: var(--oml-top-width) !important;
+  max-width: var(--oml-top-width) !important;
+  margin: 0 !important;
 }
 
 /* The original left column no longer participates in layout. */
@@ -34,61 +48,111 @@ html.ogame-mobile-layout #left {
   display: none !important;
 }
 
+/* Original OGame menu, restyled as a real 5-column grid. */
 html.ogame-mobile-layout #menuTable {
   grid-area: menu;
   display: grid !important;
-  grid-template-columns: repeat(5, 134px);
-  grid-auto-rows: 29px;
-  width: 670px !important;
-  min-width: 670px !important;
-  max-width: 670px !important;
+  grid-template-columns: repeat(5, var(--oml-menu-cell));
+  grid-auto-rows: 31px;
+  width: var(--oml-main-width) !important;
+  min-width: var(--oml-main-width) !important;
+  max-width: var(--oml-main-width) !important;
   height: auto !important;
-  min-height: 116px !important;
-  margin: 0 !important;
+  margin: 0 0 6px 0 !important;
   padding: 0 !important;
   position: static !important;
   float: none !important;
   visibility: visible !important;
   opacity: 1 !important;
   list-style: none !important;
+  gap: 0 !important;
 }
 
 html.ogame-mobile-layout #menuTable > li {
-  display: block !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 30px;
+  align-items: stretch !important;
   position: relative !important;
   float: none !important;
-  width: 134px !important;
-  height: 29px !important;
+  width: var(--oml-menu-cell) !important;
+  height: 31px !important;
   margin: 0 !important;
   padding: 0 !important;
+  box-sizing: border-box !important;
   visibility: visible !important;
   opacity: 1 !important;
+  background: rgba(12, 25, 34, 0.92) !important;
+  border-right: 1px solid rgba(120, 151, 168, 0.28) !important;
+  border-bottom: 1px solid rgba(120, 151, 168, 0.28) !important;
+  overflow: hidden !important;
 }
 
-html.ogame-mobile-layout #menuTable > li > a.menubutton {
-  display: block !important;
-  width: 104px !important;
-  max-width: 104px !important;
+html.ogame-mobile-layout #menuTable > li:nth-child(-n + 5) {
+  border-top: 1px solid rgba(120, 151, 168, 0.28) !important;
+}
+
+html.ogame-mobile-layout #menuTable > li:nth-child(5n + 1) {
+  border-left: 1px solid rgba(120, 151, 168, 0.28) !important;
+}
+
+html.ogame-mobile-layout #menuTable > li > a.menubutton,
+html.ogame-mobile-layout #menuTable > li > div.menubutton {
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 30px !important;
+  margin: 0 !important;
+  padding: 0 4px !important;
   box-sizing: border-box !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  background-position: center !important;
 }
 
 html.ogame-mobile-layout #menuTable > li > .menu_icon {
-  right: 0 !important;
-  left: auto !important;
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+html.ogame-mobile-layout #menuTable > li > .menu_icon .menuImage,
+html.ogame-mobile-layout #menuTable > li > .menu_icon > .menuImage {
+  position: static !important;
+  margin: auto !important;
 }
 
 html.ogame-mobile-layout #middle {
   grid-area: middle;
   float: none !important;
-  width: 670px !important;
+  width: var(--oml-main-width) !important;
   margin: 0 !important;
 }
 
 html.ogame-mobile-layout #right {
   grid-area: right;
   float: none !important;
-  width: 300px !important;
+  width: var(--oml-planets-width) !important;
+  min-width: var(--oml-planets-width) !important;
+  max-width: var(--oml-planets-width) !important;
   margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.ogame-mobile-layout #planetbarcomponent,
+html.ogame-mobile-layout #planetList {
+  width: var(--oml-planets-width) !important;
+  max-width: var(--oml-planets-width) !important;
 }
 
 /* Remove ad containers so they consume neither width nor height. */
