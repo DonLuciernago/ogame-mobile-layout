@@ -1,20 +1,11 @@
-/* OGame Mobile Layout v0.15
+/* OGame Mobile Layout v0.16
  * Native browser zoom is handled by the extension service worker.
- * CSS only adjusts the original left-menu buttons.
+ * Keep OGame's original menu styling and button dimensions.
  */
 
-/* OGame left menu: increase clickable height by 33% (29px -> 38.57px). */
-#menuTable > li,
-#menuTable > li > a.menubutton,
-#menuTable > li > div.menubutton,
-#menuTable > li > .menu_icon {
-  height: 38.57px !important;
-  min-height: 38.57px !important;
-}
-
-#menuTable > li > a.menubutton,
-#menuTable > li > div.menubutton {
-  line-height: 38.57px !important;
-  background-image: none !important;
-  background: #17232d !important;
+/* Original menu buttons are 29px high.
+ * Add 30% of that height (8.7px) as vertical separation between items.
+ */
+#menuTable > li {
+  margin-bottom: 8.7px !important;
 }
