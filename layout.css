@@ -1,7 +1,22 @@
-/* OGame Mobile Layout v0.13
- * Zoom-only mode: no structural, positional, visibility or viewport changes.
+/* OGame Mobile Layout v0.14
+ * 300% zoom plus larger left-menu hit targets.
+ * No structural or viewport changes.
  */
 
 html {
-  zoom: 3.2 !important;
+  zoom: 3 !important;
+}
+
+/* OGame left menu: increase the clickable height by 50%. */
+#menuTable > li,
+#menuTable > li > a.menubutton,
+#menuTable > li > div.menubutton,
+#menuTable > li > .menu_icon {
+  height: 43.5px !important;
+  min-height: 43.5px !important;
+}
+
+#menuTable > li > a.menubutton,
+#menuTable > li > div.menubutton {
+  line-height: 43.5px !important;
 }
