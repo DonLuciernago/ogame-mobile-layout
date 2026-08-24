@@ -1,0 +1,17 @@
+/*
+ * OGame Mobile Layout
+ *
+ * Goal: reorder existing OGame UI regions without rebuilding them.
+ * Keep this file lightweight and scoped under .ogame-mobile-layout.
+ *
+ * Target visual order:
+ *   1. Resources
+ *   2. Main content
+ *   3. Two columns: main menu | planets
+ *
+ * No responsive rules are used intentionally.
+ */
+
+.ogame-mobile-layout {
+  /* Activation hook only. Real selectors will be added after DOM inspection. */
+}
