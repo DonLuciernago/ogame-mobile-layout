@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "OGame Mobile Layout",
-  "version": "0.10.0",
-  "description": "Minimal UI layout reordering for OGame, designed to coexist with OGame Infinity.",
+  "version": "0.11.0",
+  "description": "Zoom-only OGame extension for Chromium/Kiwi.",
   "content_scripts": [
     {
       "matches": [
@@ -10,9 +10,6 @@
       ],
       "css": [
         "layout.css"
-      ],
-      "js": [
-        "content.js"
       ],
       "run_at": "document_idle"
     }
