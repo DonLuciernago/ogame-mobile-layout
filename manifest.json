@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "OGame Mobile Layout",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "description": "OGame mobile zoom helper for Chromium/Kiwi.",
   "permissions": [
     "tabs"
